@@ -1,0 +1,32 @@
+h1. MooseX::Explain
+
+MooseX::Explain is a thought more than anything at this moment. It's an idea that somehow we should be able to create better documentation for our code, while keeping the maintenance down.
+
+h2. What does it try to solve?
+
+I'm always annoyed when I'm trying to learn some new shiny CPAN module, or find out what goes where in something I have used a while. I usually do all of this on http://search.cpan.org/. I have to go back and forth, look at source to infer relationships between packages/classes/roles/modules. I have to figure out what roles get consumed, and from that what methods are actually on a class or object. I then have to go there to read it, often without a direct link, but back to the main index. My brain capacity is quite limited, so keeping all that in my head quickly expunges the oldest from the cache.
+
+h2. So what do I propose then?
+
+Well, a lot of the new code I write, and a lot of the new code I use, is based on Moose/CMOP and it's derivates. It gives us the $meta-object, it gives us introspection, it gives us relationships we can read in a structured matter. Surely it must be possible to use this information to automatically maintain a more user-friendly API documentation?
+
+h3. Ideas
+
+* Automatic relationship-sections in POD.
+* Use MooseX::Method::Signatures? Then the arguments will be linked/inlined with documentation pertinent to the type of the argument.
+* Consume a role? We could inline the documentation for the "public" methods that role will give our class.
+* All attributes could automatically use the documentation attribute for documentation in the POD as well.
+
+h3. The Plan
+
+Firstly nothingmuch suggested I write something to extract all the relevant information, and then write something that uses it to improve the POD, or generate other forms of output. I think that is what I hope MooseX::Explain will be.
+
+Then I will hopefully manage to write something that uses MooseX::Explain to automatically improve the documentation through perhaps a Dist::Zilla plugin to rewrite the POD on the way into the dist.
+
+
+h2. Resources
+
+I started a google wave with some of these thoughts. 
+
+Wave: https://wave.google.com/wave/#restored:wave:googlewave.com!w%252BJojVGH10A.2
+
